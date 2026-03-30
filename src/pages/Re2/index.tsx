@@ -4,7 +4,7 @@ import { Asterisk, ArrowRight, Smartphone, LayoutGrid, ShieldCheck, Code2, Store
 import { Link } from 'react-router-dom';
 import GlobeEffect from "../Home2/components/GlobeEffect";
 import LogoMarquee from "../Home2/components/LogoMarquee";
-import TypingIndicator from "./components/TypingIndicator";
+import TypingIndicator from "../Home/components/TypingIndicator";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
