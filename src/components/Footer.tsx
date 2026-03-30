@@ -2,9 +2,9 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
-        <footer className="border-t border-border/50 py-24 bg-background text-[#1F1F23]">
+        <footer className="border-t border-border/50 py-8 px-8 sm:px-16 md:px-28 bg-background text-[#1F1F23]">
             <div className="container">
-                <div className="flex flex-col md:flex-row justify-between gap-16 mb-24 text-left">
+                <div className="flex flex-col md:flex-row justify-between gap-16 mb-8 text-left">
                     <div className="max-w-xs space-y-6">
                         <Link to="/" className="inline-block">
                             <img
@@ -32,7 +32,7 @@ const Footer = () => {
                     </div>
                 </div>
 
-                <div className="flex flex-col md:flex-row justify-between items-center gap-8 pt-8 border-t border-border/50">
+                <div className="flex flex-col md:flex-row justify-between items-center gap-8 pt-4 border-t border-border/50">
                     <p className="text-[10px] text-muted-foreground/60 uppercase tracking-widest font-medium font-sans">
                         &copy; {new Date().getFullYear()} NIT America. All rights reserved.
                     </p>

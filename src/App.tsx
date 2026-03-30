@@ -10,6 +10,7 @@ import Messaging2 from './pages/Messaging2'
 
 import Home from './pages/Home'
 import Home2 from './pages/Home2'
+import Re from './pages/Re'
 
 function App() {
     return (
@@ -18,6 +19,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/home2" element={<Home2 />} />
+                <Route path="/re" element={<Re />} />
                 <Route path="*" element={
                     <>
                         <Navbar />

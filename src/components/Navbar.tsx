@@ -24,6 +24,10 @@ const Navbar = ({ dark = false }: { dark?: boolean }) => {
     const navLinks = [
         { name: 'Messaging Services', path: '/messaging', shortName: 'Messaging Services' },
         { name: 'Licensing & Distribution', path: '/licensing', shortName: 'Licensing' },
+        ...(location.pathname === '/re' ? [
+            { name: 'About', path: '#about' },
+            { name: 'Team', path: '#team' },
+        ] : [])
     ];
 
     const [isOpen, setIsOpen] = useState(false);
@@ -59,11 +63,24 @@ const Navbar = ({ dark = false }: { dark?: boolean }) => {
                 {[...navLinks, { name: 'Contact', path: '/contact' }].map((link) => {
                     const isContact = link.path === '/contact';
                     const isContactInPill = isContact && isDark && isScrolled;
+                    const isHashLink = link.path.startsWith('#');
+
+                    const handleClick = (e: React.MouseEvent) => {
+                        if (isHashLink && location.pathname === '/re') {
+                            e.preventDefault();
+                            const id = link.path.replace('#', '');
+                            const element = document.getElementById(id);
+                            if (element) {
+                                element.scrollIntoView({ behavior: 'smooth' });
+                            }
+                        }
+                    };
 
                     return (
                         <Link
                             key={link.path}
                             to={link.path}
+                            onClick={handleClick}
                             className={cn(
                                 "relative text-[13px] font-bold tracking-widest uppercase transition-all px-6 py-2",
                                 isContactInPill
@@ -116,19 +133,36 @@ const Navbar = ({ dark = false }: { dark?: boolean }) => {
                                 {/* Sheet close is handled by the component automatically, but we ensure the header is clean */}
                             </div>
                             <nav className="flex flex-col p-8 space-y-8">
-                                {navLinks.map((link) => (
-                                    <Link
-                                        key={link.path}
-                                        to={link.path}
-                                        onClick={() => setIsOpen(false)}
-                                        className={cn(
-                                            "text-4xl font-bold tracking-tight transition-all",
-                                            isActive(link.path) ? "text-[#1F1F23]" : "text-[#1F1F23]/30 hover:text-[#1F1F23]"
-                                        )}
-                                    >
-                                        {link.name}
-                                    </Link>
-                                ))}
+                                {navLinks.map((link) => {
+                                    const isHashLink = link.path.startsWith('#');
+                                    const handleMobileClick = (e: React.MouseEvent) => {
+                                        if (isHashLink && location.pathname === '/re') {
+                                            e.preventDefault();
+                                            const id = link.path.replace('#', '');
+                                            const element = document.getElementById(id);
+                                            if (element) {
+                                                element.scrollIntoView({ behavior: 'smooth' });
+                                            }
+                                            setIsOpen(false);
+                                        } else {
+                                            setIsOpen(false);
+                                        }
+                                    };
+
+                                    return (
+                                        <Link
+                                            key={link.path}
+                                            to={link.path}
+                                            onClick={handleMobileClick}
+                                            className={cn(
+                                                "text-4xl font-bold tracking-tight transition-all",
+                                                isActive(link.path) ? "text-[#1F1F23]" : "text-[#1F1F23]/30 hover:text-[#1F1F23]"
+                                            )}
+                                        >
+                                            {link.name}
+                                        </Link>
+                                    );
+                                })}
                                 <Link
                                     to="/contact"
                                     onClick={() => setIsOpen(false)}

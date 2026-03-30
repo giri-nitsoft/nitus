@@ -157,9 +157,9 @@ export default function Home2() {
                         >
                             <Link
                                 to="/contact"
-                                className="inline-flex items-center gap-2 sm:gap-3 text-sm sm:text-base md:text-lg font-bold uppercase tracking-wider text-white hover:text-[#355BE5] transition-all duration-300 group px-8 sm:px-10 py-4 sm:py-5 border border-white/20 rounded-full hover:border-[#355BE5]/50 bg-white/5 hover:bg-white/10 backdrop-blur-md"
+                                className="inline-flex items-center gap-[7px] sm:gap-[11px] text-[12.6px] sm:text-[14.4px] md:text-[16.2px] font-bold uppercase tracking-wider text-white hover:text-[#355BE5] transition-all duration-300 group px-7 sm:px-9 py-[14px] sm:py-[18px] border border-white/20 rounded-full hover:border-[#355BE5]/50 bg-white/5 hover:bg-white/10 backdrop-blur-md"
                             >
-                                REQUEST CONSULTATION <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-2 transition-transform duration-300" />
+                                REQUEST CONSULTATION <ArrowRight className="w-[14px] h-[14px] sm:w-[18px] sm:h-[18px] group-hover:translate-x-2 transition-transform duration-300" />
                             </Link>
                         </motion.div>
                     </motion.div>

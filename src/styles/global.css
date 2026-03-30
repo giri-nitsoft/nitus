@@ -189,3 +189,23 @@
         transform: none !important;
     }
 }
+
+.graph-floating {
+  animation: float 4s ease-in-out infinite;
+}
+
+.graph-floating:hover {
+  animation: bounceUp 0.6s ease-out;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes bounceUp {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+  100% { transform: translateY(0); }
+}
