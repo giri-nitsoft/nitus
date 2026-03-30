@@ -5,8 +5,6 @@ import { Link } from 'react-router-dom';
 import GlobeEffect from "../Home2/components/GlobeEffect";
 import LogoMarquee from "../Home2/components/LogoMarquee";
 import TypingIndicator from "../Home/components/TypingIndicator";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import { cn } from "@/lib/utils";
 
@@ -129,13 +127,11 @@ export default function Home() {
     };
 
     return (
-        <div className="min-h-[200vh] bg-background text-foreground font-sans selection:bg-accent selection:text-accent-foreground">
+        <div className="min-h-screen bg-background text-foreground font-sans selection:bg-accent selection:text-accent-foreground">
             <SEO
                 title="NIT America | Advanced Infrastructure"
                 description="Scaling messaging infrastructure and launching brands in Korea with precision."
             />
-
-            <Navbar />
 
             {/* Floating Scalable Logo */}
             <motion.header
@@ -618,7 +614,6 @@ export default function Home() {
                 </div>
             </section>
 
-            <Footer />
         </div >
     );
 }

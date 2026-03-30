@@ -4,7 +4,7 @@ import { ArrowRight, Check, MapPin, Send } from "lucide-react";
 import { Link } from 'react-router-dom';
 import SEO from "@/components/SEO";
 import LogoMarquee from "../Home2/components/LogoMarquee";
-import Footer from "@/components/Footer";
+
 
 /**
  * HOME PAGE REDESIGN
@@ -16,12 +16,7 @@ import Footer from "@/components/Footer";
  * - Premium feel with balanced negative space and subtle animations
  */
 
-const navItems = [
-    { id: '01', name: 'WORK', color: 'bg-[#8CA2D6]', path: '#' },
-    { id: '02', name: 'ABOUT', color: 'bg-[#9DB2E0]', path: '#about' },
-    { id: '03', name: 'TEAM', color: 'bg-[#C9D7F2]', path: '#team' },
-    { id: '04', name: 'CONTACT', color: 'bg-[#DDE9F9]', path: '/contact' },
-];
+
 
 const titles = ["Messaging Services", "Brand Licensing & Distribution"];
 const licensingImages = [
@@ -96,31 +91,26 @@ const teamMembers = [
     {
         name: "Jin-sung Lim",
         role: "CEO & Co-Founder",
-        initials: "JL",
         focus: "Leads overall strategy and cross-border partnerships between the U.S. and Korea. Builds scalable business models and drives global growth."
     },
     {
         name: "Tracy D'Orta",
         role: "VP Business Development",
-        initials: "TD",
         focus: "Identifies American companies and products with high Korean market potential and coordinates U.S.-Korea operations."
     },
     {
         name: "Woo-jin Jang",
         role: "CFO",
-        initials: "WJ",
         focus: "Oversees financial planning, budgeting, and performance management. Ensures alignment between financial goals and business execution."
     },
     {
         name: "Vincent Rosso",
         role: "CTO",
-        initials: "VR",
         focus: "Leads technological strategy and infrastructure development, ensuring scalable and secure systems to support messaging and distribution operations."
     },
     {
         name: "Tyler Xu",
         role: "Operations Lead",
-        initials: "TX",
         focus: "Oversee day-to-day operations, lead hiring and office infrastructure development, and act as a key liaison between the CEO and internal team to ensure efficient execution of company initiatives."
     }
 ];
@@ -171,32 +161,7 @@ export default function Home() {
     }, []);
 
     const containerRef = useRef(null);
-    const mainRef = useRef<HTMLElement>(null);
 
-    const handleNavClick = (e: React.MouseEvent, item: typeof navItems[0]) => {
-        if (item.name === 'CONTACT') return;
-        e.preventDefault();
-
-        const scrollContainer = mainRef.current || document.querySelector('main');
-        if (!scrollContainer) return;
-
-        if (item.name === 'WORK') {
-            // Scroll to very top of the main container
-            scrollContainer.scrollTo({ top: 0, behavior: 'smooth' });
-        } else if (item.name === 'ABOUT') {
-            const el = document.getElementById('about');
-            if (el) {
-                // Ensure the Since 2025 part is visible
-                const offset = el.offsetTop - 20; 
-                scrollContainer.scrollTo({ top: offset, behavior: 'smooth' });
-            }
-        } else if (item.name === 'TEAM') {
-            const el = document.getElementById('team');
-            if (el) {
-                scrollContainer.scrollTo({ top: el.offsetTop, behavior: 'smooth' });
-            }
-        }
-    };
 
     useEffect(() => {
         const observer = new IntersectionObserver((entries) => {
@@ -218,14 +183,14 @@ export default function Home() {
     }, []);
 
     return (
-        <div className="h-screen bg-white text-[#1F1F23] font-sans overflow-hidden flex flex-col md:flex-row selection:bg-[#8CA2D6]/30">
+        <div className="w-full">
             <SEO
                 title="NIT America | Leading Messaging Services & Market Expansion"
                 description="NIT AMERICA helps businesses grow by connecting them to customers through messaging and to new markets through distribution."
             />
 
             {/* --- LEFT CONTENT AREA --- */}
-            <main ref={mainRef} className="flex-1 flex flex-col justify-start px-6 sm:px-12 md:px-24 md:mr-[240px] lg:mr-[330px] pt-4 lg:pt-6 relative z-10 overflow-y-auto">
+            <div className="pt-4 lg:pt-6 relative z-10 w-full px-6 sm:px-12 md:px-24">
                 <div className="max-w-[1200px] w-full">
                     {/* Rotating Main Title Section */}
                     <div className="mb-6 md:mb-8 lg:mb-10 h-[clamp(2.25rem,9vw,6.3rem)] overflow-hidden">
@@ -254,7 +219,7 @@ export default function Home() {
                                 Growth Infrastructure
                             </p>
                             <h2 className="text-[clamp(1.58rem,4.5vw,4.05rem)] font-bold leading-[1.05] tracking-tight max-w-[18ch] text-[#111111]">
-                                Connecting Businesses to Customers and Brands to New Markets
+                                "Connecting Customers, Markets, and Growth"
                             </h2>
                         </motion.div>
 
@@ -343,14 +308,9 @@ export default function Home() {
                                         <video
                                             autoPlay
                                             muted
+                                            loop
                                             playsInline
-                                            onTimeUpdate={(e) => {
-                                                const video = e.currentTarget;
-                                                if (video.currentTime >= 6.5) {
-                                                    video.currentTime = 0;
-                                                    video.play();
-                                                }
-                                            }}
+                                            preload="auto"
                                             className="absolute inset-0 w-full h-full object-cover opacity-95 group-hover:scale-105 transition-transform duration-1000"
                                         >
                                             <source src="/home/message%20video.mp4" type="video/mp4" />
@@ -533,7 +493,7 @@ export default function Home() {
                                 transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
                                 className="relative inline-block"
                             >
-                                <h2 className="text-[9vw] md:text-[112px] lg:text-[145px] font-bold text-[#1F1F23] leading-none tracking-[-0.04em]">
+                                <h2 className="text-[8.1vw] md:text-[100px] lg:text-[130px] font-plateia text-[#1F1F23] leading-none tracking-[-0.04em] whitespace-nowrap">
                                     NIT AMERICA
                                 </h2>
 
@@ -700,24 +660,19 @@ export default function Home() {
                                         style={{ transitionDelay: `${i * 80}ms` }}
                                         className="group relative"
                                     >
-                                        <div className="flex items-start gap-6">
-                                            <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-[#1F1F23]/[0.04] border border-[#1F1F23]/10 flex items-center justify-center text-xl font-bold text-[#1F1F23] shrink-0 shadow-sm transition-transform group-hover:scale-105">
-                                                {member.initials}
+                                        <div className="space-y-2 pt-1 md:pt-2">
+                                            <div>
+                                                <h3 className="text-lg md:text-xl font-bold text-[#1F1F23] group-hover:underline underline-offset-4 decoration-[#1F1F23]/30">
+                                                    {member.name}
+                                                </h3>
+                                                <p className="text-[14px] font-bold text-[#355BE5] mt-0.5 tracking-tight uppercase">
+                                                    {member.role}
+                                                </p>
                                             </div>
-                                            <div className="space-y-2 pt-1 md:pt-2">
-                                                <div>
-                                                    <h3 className="text-lg md:text-xl font-bold text-[#1F1F23] group-hover:underline underline-offset-4 decoration-[#1F1F23]/30">
-                                                        {member.name}
-                                                    </h3>
-                                                    <p className="text-[14px] font-bold text-[#355BE5] mt-0.5 tracking-tight uppercase">
-                                                        {member.role}
-                                                    </p>
-                                                </div>
-                                                <div className="space-y-1">
-                                                    <p className="text-[13px] text-[#1F1F23]/50 leading-relaxed max-w-sm">
-                                                        {member.focus}
-                                                    </p>
-                                                </div>
+                                            <div className="space-y-1">
+                                                <p className="text-[13px] text-[#1F1F23]/50 leading-relaxed max-w-sm">
+                                                    {member.focus}
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
@@ -770,117 +725,13 @@ export default function Home() {
                 </div>
             </section>
 
-            <div className="-mx-6 sm:-mx-12 md:-mx-24">
-                <Footer />
-            </div>
+
 
             {/* Decorative background element (Optional, for that premium touch) */}
                 <div className="absolute top-0 left-0 w-full h-full pointer-events-none -z-10 opacity-[0.02]">
                     <div className="absolute top-[10%] left-[5%] text-[20rem] font-bold select-none rotate-[-5deg]">NIT</div>
                 </div>
-            </main>
-
-            {/* --- RIGHT SIDEBAR NAVIGATION (Fixed GNB) --- */}
-            <aside className="hidden md:flex fixed right-0 top-0 w-[240px] lg:w-[330px] h-screen flex-col z-50 border-l border-gray-100 bg-white">
-                {/* Top Sidebar Area (Two Rectangular Boxes for Services) */}
-                <div className="flex-[0.8] flex relative">
-                    <Link
-                        to="/messaging"
-                        className="flex-1 bg-[#A1B3E0] flex items-end justify-end pb-12 border-r border-white/10 pr-4 group cursor-pointer hover:flex-[1.2] transition-all duration-700"
-                    >
-                        <motion.div 
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 0.7 }}
-                        className="[writing-mode:vertical-rl] rotate-180 text-white font-bold uppercase tracking-[0.25em] text-lg lg:text-2xl"
-                    >
-                        Messaging<br />Service
-                    </motion.div>
-                </Link>
-
-    {/* Center Logo - Clickable to Home */ }
-                    <Link 
-                        to="/" 
-                        className="absolute top-6 lg:top-10 left-1/2 -translate-x-1/2 z-30 group"
-                    >
-                        <motion.img 
-                            src="/home/logo_n.png" 
-                            alt="NIT America Logo" 
-                            className="w-12 h-12 md:w-16 md:h-16 lg:w-22 lg:h-22 object-contain filter drop-shadow-xl"
-                            initial={{ scale: 0, opacity: 0 }}
-                            animate={{ scale: 1, opacity: 1 }}
-                            transition={{ type: "spring", stiffness: 260, damping: 20, delay: 1 }}
-                            whileHover={{ scale: 1.1 }}
-                        />
-                    </Link>
-
-                    <Link
-                        to="/licensing"
-                        className="flex-1 bg-[#BCC9EA] flex items-end justify-end pb-12 pr-0 group cursor-pointer hover:flex-[1.2] transition-all duration-700"
-                    >
-                        <motion.div 
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ duration: 1, delay: 0.7 }}
-                            className="[writing-mode:vertical-rl] rotate-180 text-white font-bold uppercase tracking-[0.25em] text-lg lg:text-2xl"
-                        >
-                            Brand Licensing<br />& Distribution
-                        </motion.div>
-                    </Link>
-                </div >
-
-        {/* Bottom Interactive Navigation Strips */ }
-        < nav className = "flex flex-[1.2]" >
-        {
-            navItems.map((item, index) => (
-                <motion.div
-                    key={item.id}
-                    initial={{ y: 100, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{
-                        duration: 1,
-                        delay: 1 + (index * 0.1),
-                        ease: [0.16, 1, 0.3, 1]
-                    }}
-                    className="flex-1"
-                >
-                    <Link
-                        to={item.path}
-                        onClick={(e) => handleNavClick(e, item)}
-                        className={`${item.color} h-full w-full group cursor-pointer flex items-end justify-end pb-16 lg:pb-20 pr-0 relative overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] hover:flex-[2.5] hover:brightness-105`}
-                    >
-                        {/* Hover Gradient Layer */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-                        <div className="[writing-mode:vertical-rl] rotate-180 text-white font-bold uppercase tracking-[0.4em] text-lg lg:text-2xl whitespace-nowrap transition-all duration-500 group-hover:-translate-y-8 flex items-center gap-4">
-                            <span className="opacity-40 text-sm font-medium">({item.id})</span>
-                            <span>{item.name}</span>
-                        </div>
-
-                        {/* Hover Underline Effect */}
-                        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 w-1 h-0 bg-white group-hover:h-8 transition-all duration-500 rounded-full" />
-                    </Link>
-                </motion.div>
-            ))
-        }
-                </nav >
-            </aside >
-
-        {/* --- MOBILE NAVIGATION --- */ }
-        < div className = "md:hidden fixed bottom-0 left-0 w-full h-20 bg-white/80 backdrop-blur-xl border-t border-gray-100 flex items-center justify-around px-2 z-50" >
-        {
-            navItems.map((item) => (
-                <Link
-                    key={item.id}
-                    to={item.path}
-                    onClick={(e) => handleNavClick(e, item)}
-                    className="flex flex-col items-center gap-1 group"
-                >
-                    <div className={`w-8 h-1 rounded-full ${item.color} opacity-40 group-hover:opacity-100 transition-all`} />
-                    <span className="text-[9px] font-black text-[#1F1F23] uppercase tracking-tighter">{item.name}</span>
-                </Link>
-            ))
-        }
-            </div >
-        </div >
+            </div>
+        </div>
     );
 }
