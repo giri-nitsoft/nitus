@@ -209,9 +209,15 @@ const RightSidebar: React.FC<RightSidebarProps> = ({ mainRef }) => {
                         </div>
 
                         {/* Footer in Menu */}
-                        <div className="mt-auto pt-10 border-t border-gray-100">
-                            <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Get in touch</p>
-                            <p className="text-sm font-bold text-[#111111]">info@nitamerica.com</p>
+                        <div className="mt-auto pt-10 border-t border-gray-100 space-y-8">
+                            <div className="flex flex-col gap-4">
+                                <p className="text-xs font-bold text-gray-400 uppercase tracking-widest">Get in touch</p>
+                                <p className="text-xl font-bold text-[#111111]">info@nitamerica.com</p>
+                            </div>
+                            <div className="flex gap-6">
+                                <Link to="/privacy" onClick={() => setIsMenuOpen(false)} className="text-[10px] text-[#111111]/40 uppercase tracking-widest font-bold">Privacy Policy</Link>
+                                <Link to="/terms" onClick={() => setIsMenuOpen(false)} className="text-[10px] text-[#111111]/40 uppercase tracking-widest font-bold">SMS Terms</Link>
+                            </div>
                         </div>
                     </motion.div>
                 )}
