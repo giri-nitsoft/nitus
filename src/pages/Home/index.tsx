@@ -192,7 +192,7 @@ export default function Home() {
     }, []);
 
     return (
-        <div className="w-full">
+        <div className="w-full overflow-x-hidden">
             <SEO
                 title="NIT America | Leading Messaging Services & Market Expansion"
                 description="NIT AMERICA helps businesses grow by connecting them to customers through messaging and to new markets through distribution."
@@ -210,7 +210,7 @@ export default function Home() {
                                 animate={{ y: "0%", opacity: 1 }}
                                 exit={{ y: "-100%", opacity: 0 }}
                                 transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                                className="text-[clamp(1.8rem,6.48vw,5.22rem)] font-bold tracking-tight leading-[1] text-[#111111] whitespace-nowrap origin-bottom"
+                                className="text-[clamp(1.8rem,6.48vw,5.22rem)] font-bold tracking-tight leading-[1] text-[#111111] whitespace-normal md:whitespace-nowrap origin-bottom"
                             >
                                 {titles[index]}
                             </motion.h1>
@@ -253,13 +253,13 @@ export default function Home() {
                     </div>
 
                     {/* Carousel Arc Section (Official Business Folder) */}
-                    <div className="relative w-full pt-12 pb-32 md:pb-60 overflow-visible mt-28 md:mt-48 mb-0 flex justify-center">
+                    <div className="relative w-full pt-12 pb-32 md:pb-60 overflow-visible mt-12 md:mt-48 mb-0 flex justify-center">
                         
                         {/* THE BUSINESS FOLDER CONTAINER (z-index foundation) */}
-                        <div className="relative w-full md:w-[84%] max-w-[1330px] h-[750px] md:h-[500px] flex items-start md:items-center justify-center pt-8 md:pt-24 pb-6 md:pb-12 overflow-visible">
+                        <div className="relative w-full md:w-[84%] max-w-[1330px] h-auto md:h-[500px] flex flex-col md:flex-row items-center justify-center pt-8 md:pt-24 pb-6 md:pb-12 overflow-visible">
                             
                             {/* 1. 3D Folder Body (Back Panel & Side Folds) */}
-                            <div className="absolute inset-0 bottom-[-80px] bg-[#BC9D70] rounded-[6px] z-0 shadow-[0_30px_70px_-20px_rgba(0,0,0,0.45)] overflow-visible">
+                            <div className="hidden md:block absolute inset-0 bottom-[-80px] bg-[#BC9D70] rounded-[6px] z-0 shadow-[0_30px_70px_-20px_rgba(0,0,0,0.45)] overflow-visible">
                                 {/* Material Texture */}
                                 <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/recycled-paper.png')] opacity-30 mix-blend-multiply" />
                                 
@@ -272,7 +272,7 @@ export default function Home() {
                             </div>
 
                             {/* 2. THE CARDS (Middle layer - Wrapped in their layout flex) */}
-                            <div className="w-full max-w-full xl:max-w-[1600px] mx-auto h-full flex flex-col xl:flex-row items-center justify-center gap-12 md:gap-4 xl:gap-0 relative z-30 pt-0">
+                            <div className="w-full max-w-full xl:max-w-[1600px] mx-auto h-full flex flex-col xl:flex-row items-center justify-center gap-16 md:gap-4 xl:gap-0 relative z-30 pt-0">
 
                             {/* Left Card (Tilted Left) */}
                             <motion.div
@@ -459,7 +459,7 @@ export default function Home() {
                         </div>
 
                         {/* 3. 3D Folder Front Pocket (Matching the reference image) */}
-                        <div className="absolute bottom-[-100px] md:bottom-[-80px] left-0 right-0 h-[300px] md:h-[240px] z-40 overflow-visible pointer-events-none">
+                        <div className="hidden md:block absolute bottom-[-100px] md:bottom-[-80px] left-0 right-0 h-[300px] md:h-[240px] z-40 overflow-visible pointer-events-none">
                             {/* The Front Panel with Rounded Top Corners */}
                             <div className="absolute inset-x-0 bottom-0 top-0 bg-[#C4A478] rounded-t-[10px] md:rounded-t-[20px] shadow-[0_-10px_30px_rgba(0,0,0,0.12)] select-none overflow-hidden pointer-events-auto border-t border-white/30">
                                 {/* Material Texture */}
@@ -502,7 +502,7 @@ export default function Home() {
                                 transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
                                 className="relative inline-block"
                             >
-                                <h2 className="text-[12vw] md:text-[100px] lg:text-[130px] font-plateia text-[#1F1F23] leading-none tracking-[-0.04em] whitespace-nowrap">
+                                <h2 className="text-[10vw] md:text-[100px] lg:text-[130px] font-plateia text-[#1F1F23] leading-none tracking-[-0.04em] whitespace-normal md:whitespace-nowrap">
                                     NIT AMERICA
                                 </h2>
 

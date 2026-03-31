@@ -17,7 +17,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
             {/* Main scrollable content area */}
             <main 
                 ref={mainRef} 
-                className="flex-1 flex flex-col justify-start relative z-10 overflow-y-auto md:mr-[240px] lg:mr-[330px] no-scrollbar"
+                className="flex-1 flex flex-col justify-start relative z-10 overflow-x-hidden overflow-y-auto md:mr-[240px] lg:mr-[330px] no-scrollbar"
             >
                 {children}
             </main>
