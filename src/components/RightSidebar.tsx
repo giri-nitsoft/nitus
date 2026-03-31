@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, ArrowRight, Home as HomeIcon, MessageSquare, Briefcase, Mail } from 'lucide-react';
+import { X, ArrowRight, Home as HomeIcon, MessageSquare, Briefcase, Mail } from 'lucide-react';
 
 export const navItems = [
     { id: '01', name: 'WORK', color: 'bg-[#8CA2D6]', path: '/' },

@@ -32,7 +32,9 @@ function App() {
                         <Route path="/messaging2" element={<Messaging2 />} />
                         <Route path="/contact" element={<Contact />} />
                         <Route path="/privacy" element={<Privacy />} />
+                        <Route path="/privacy-policy" element={<Privacy />} />
                         <Route path="/terms" element={<Terms />} />
+                        <Route path="/sms-terms" element={<Terms />} />
                     </Routes>
                 </div>
                 <Footer />
