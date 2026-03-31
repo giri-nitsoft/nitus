@@ -153,11 +153,20 @@ export default function Home() {
         return () => clearInterval(timer);
     }, []);
 
+    const [isMobile, setIsMobile] = useState(false);
     useEffect(() => {
-        const timer = setInterval(() => {
+        const checkMobile = () => setIsMobile(window.innerWidth < 1280); // Using xl breakpoint for mobile layout
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+
+        const imgTimer = setInterval(() => {
             setImgIndex((prev) => (prev + 1) % licensingImages.length);
         }, 3500);
-        return () => clearInterval(timer);
+
+        return () => {
+            window.removeEventListener('resize', checkMobile);
+            clearInterval(imgTimer);
+        };
     }, []);
 
     const containerRef = useRef(null);
@@ -244,10 +253,10 @@ export default function Home() {
                     </div>
 
                     {/* Carousel Arc Section (Official Business Folder) */}
-                    <div className="relative w-full pt-12 pb-60 overflow-visible mt-48 mb-0 flex justify-center">
+                    <div className="relative w-full pt-12 pb-32 md:pb-60 overflow-visible mt-28 md:mt-48 mb-0 flex justify-center">
                         
                         {/* THE BUSINESS FOLDER CONTAINER (z-index foundation) */}
-                        <div className="relative w-[84%] max-w-[1330px] h-[500px] flex items-center justify-center pt-24 pb-12 overflow-visible">
+                        <div className="relative w-full md:w-[84%] max-w-[1330px] h-[750px] md:h-[500px] flex items-start md:items-center justify-center pt-8 md:pt-24 pb-6 md:pb-12 overflow-visible">
                             
                             {/* 1. 3D Folder Body (Back Panel & Side Folds) */}
                             <div className="absolute inset-0 bottom-[-80px] bg-[#BC9D70] rounded-[6px] z-0 shadow-[0_30px_70px_-20px_rgba(0,0,0,0.45)] overflow-visible">
@@ -267,22 +276,22 @@ export default function Home() {
 
                             {/* Left Card (Tilted Left) */}
                             <motion.div
-                                initial={{ rotate: 80, y: 300, opacity: 0 }}
+                                initial={{ rotate: 0, y: 100, opacity: 0 }}
                                 animate={{ 
-                                    rotate: -22, 
-                                    y: -240, 
+                                    rotate: isMobile ? -1 : -22, 
+                                    y: isMobile ? 0 : -240, 
                                     opacity: 1,
                                     transition: { delay: 0.5, duration: 1.5, ease: [0.16, 1, 0.3, 1] }
                                 }}
                                 whileHover={{ 
-                                    scale: 1.04,
-                                    rotate: -12,
+                                    scale: isMobile ? 1.01 : 1.04,
+                                    rotate: isMobile ? 0 : -12,
                                     zIndex: 50,
-                                    y: -340,
+                                    y: isMobile ? -10 : -340,
                                     transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] }
                                 }}
                                 transition={{ duration: 0.3, ease: "easeOut" }}
-                                className="group relative w-full max-w-[432px] sm:max-w-[540px] aspect-[4/4.5] origin-bottom xl:origin-bottom-right xl:-mr-48 cursor-pointer overflow-visible"
+                                className="group relative w-full max-w-[88vw] md:max-w-[432px] sm:max-w-[540px] aspect-[4/4.8] md:aspect-[4/4.5] origin-bottom xl:origin-bottom-right xl:-mr-48 cursor-pointer overflow-visible z-20"
                             >
                                 {/* Realistic Paper Clip (Polished silver with depth) */}
                                 <div className="absolute top-[-10px] left-10 z-50 pointer-events-none drop-shadow-[0_2px_2px_rgba(0,0,0,0.3)]">
@@ -346,10 +355,10 @@ export default function Home() {
                                         </ul>
 
                                         <div className="pt-2">
-                                            <div className="inline-flex items-center gap-2 text-[#355BE5] font-black text-xs md:text-sm uppercase tracking-widest border-b-2 border-[#355BE5]/10 hover:border-[#355BE5]/40 pb-1 transaction-colors duration-300">
+                                            <Link to="/messaging" className="inline-flex items-center gap-2 text-[#355BE5] font-black text-xs md:text-sm uppercase tracking-widest border-b-2 border-[#355BE5]/10 hover:border-[#355BE5]/40 pb-1 transaction-colors duration-300">
                                                 Learn more
                                                 <ArrowRight className="w-4 h-4" />
-                                            </div>
+                                            </Link>
                                         </div>
                                     </div>
 
@@ -360,22 +369,22 @@ export default function Home() {
 
                             {/* Right Card (Tilted Right) */}
                             <motion.div
-                                initial={{ rotate: 80, y: 300, opacity: 0 }}
+                                initial={{ rotate: 0, y: 100, opacity: 0 }}
                                 animate={{ 
-                                    rotate: 22, 
-                                    y: -240, 
+                                    rotate: isMobile ? 1 : 22, 
+                                    y: isMobile ? 0 : -240, 
                                     opacity: 1,
                                     transition: { delay: 0.7, duration: 1.5, ease: [0.16, 1, 0.3, 1] }
                                 }}
                                 whileHover={{ 
-                                    scale: 1.04,
-                                    rotate: 12,
+                                    scale: isMobile ? 1.01 : 1.04,
+                                    rotate: isMobile ? 0 : 12,
                                     zIndex: 50,
-                                    y: -340,
+                                    y: isMobile ? -10 : -340,
                                     transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] }
                                 }}
                                 transition={{ duration: 0.3, ease: "easeOut" }}
-                                className="group relative w-full max-w-[432px] sm:max-w-[540px] aspect-[4/4.5] origin-bottom xl:origin-bottom-left xl:-ml-48 cursor-pointer overflow-visible"
+                                className="group relative w-full max-w-[88vw] md:max-w-[432px] sm:max-w-[540px] aspect-[4/4.8] md:aspect-[4/4.5] origin-bottom xl:origin-bottom-left xl:-ml-48 cursor-pointer overflow-visible mt-[-60px] md:mt-0 z-10"
                             >
                                 {/* Matching Clip for consistency (Always visible) */}
                                 <div className="absolute top-[-10px] left-10 z-50 pointer-events-none drop-shadow-[0_2px_2px_rgba(0,0,0,0.3)]">
@@ -439,10 +448,10 @@ export default function Home() {
                                         </ul>
 
                                         <div className="pt-2">
-                                            <div className="inline-flex items-center gap-2 text-[#355BE5] font-black text-xs md:text-sm uppercase tracking-widest border-b-2 border-[#355BE5]/10 hover:border-[#355BE5]/40 pb-1 transaction-colors duration-300">
+                                            <Link to="/licensing" className="inline-flex items-center gap-2 text-[#355BE5] font-black text-xs md:text-sm uppercase tracking-widest border-b-2 border-[#355BE5]/10 hover:border-[#355BE5]/40 pb-1 transaction-colors duration-300">
                                                 Learn more
                                                 <ArrowRight className="w-4 h-4" />
-                                            </div>
+                                            </Link>
                                         </div>
                                     </div>
                                 </div>
@@ -450,9 +459,9 @@ export default function Home() {
                         </div>
 
                         {/* 3. 3D Folder Front Pocket (Matching the reference image) */}
-                        <div className="absolute bottom-[-80px] left-0 right-0 h-[240px] z-40 overflow-visible pointer-events-none">
+                        <div className="absolute bottom-[-100px] md:bottom-[-80px] left-0 right-0 h-[300px] md:h-[240px] z-40 overflow-visible pointer-events-none">
                             {/* The Front Panel with Rounded Top Corners */}
-                            <div className="absolute inset-x-0 bottom-0 top-0 bg-[#C4A478] rounded-t-[20px] shadow-[0_-10px_30px_rgba(0,0,0,0.12)] select-none overflow-hidden pointer-events-auto border-t border-white/30">
+                            <div className="absolute inset-x-0 bottom-0 top-0 bg-[#C4A478] rounded-t-[10px] md:rounded-t-[20px] shadow-[0_-10px_30px_rgba(0,0,0,0.12)] select-none overflow-hidden pointer-events-auto border-t border-white/30">
                                 {/* Material Texture */}
                                 <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/recycled-paper.png')] opacity-40 mix-blend-multiply" />
                                 
@@ -462,7 +471,7 @@ export default function Home() {
 
                                 {/* 'OUR SERVICES' Debossed Effect (Refined lighting for '음각') */}
                                 <div className="absolute bottom-10 left-16">
-                                    <span className="text-[#4A321F]/50 font-[900] text-[24px] md:text-[32px] tracking-[0.3em] uppercase select-none mix-blend-multiply
+                                    <span className="text-[#4A321F]/50 font-[900] text-[18px] md:text-[32px] tracking-[0.3em] uppercase select-none mix-blend-multiply
                                         [text-shadow:0px_1px_1px_rgba(255,255,255,0.3),_-0.5px_-0.5px_0.5px_rgba(0,0,0,0.2)]">
                                         OUR SERVICES
                                     </span>
@@ -493,7 +502,7 @@ export default function Home() {
                                 transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
                                 className="relative inline-block"
                             >
-                                <h2 className="text-[8.1vw] md:text-[100px] lg:text-[130px] font-plateia text-[#1F1F23] leading-none tracking-[-0.04em] whitespace-nowrap">
+                                <h2 className="text-[12vw] md:text-[100px] lg:text-[130px] font-plateia text-[#1F1F23] leading-none tracking-[-0.04em] whitespace-nowrap">
                                     NIT AMERICA
                                 </h2>
 

@@ -123,16 +123,19 @@ const RightSidebar: React.FC<RightSidebarProps> = ({ mainRef }) => {
             </aside>
 
             {/* --- MOBILE NAVIGATION --- */}
-            <div className="md:hidden fixed bottom-0 left-0 w-full h-20 bg-white/80 backdrop-blur-xl border-t border-gray-100 flex items-center justify-around px-2 z-50">
+            <div className="md:hidden fixed bottom-0 left-0 w-full h-[84px] bg-white/95 backdrop-blur-2xl border-t border-gray-100/50 flex items-center justify-around px-4 z-[9999] shadow-[0_-10px_40px_rgba(0,0,0,0.05)]">
                 {navItems.map((item) => (
                     <Link
                         key={item.id}
                         to={item.path}
                         onClick={(e) => handleNavClick(e, item)}
-                        className="flex flex-col items-center gap-1 group"
+                        className="flex flex-col items-center gap-2 group flex-1"
                     >
-                        <div className={`w-8 h-1 rounded-full ${item.color} opacity-40 group-hover:opacity-100 transition-all`} />
-                        <span className="text-[9px] font-black text-[#1F1F23] uppercase tracking-tighter">{item.name}</span>
+                        <motion.div 
+                            whileTap={{ scale: 0.9 }}
+                            className={`w-10 h-1.5 rounded-full ${item.color} transition-all duration-300 opacity-60 group-hover:opacity-100 group-hover:w-14`} 
+                        />
+                        <span className="text-[11px] font-black text-[#1F1F23]/80 uppercase tracking-widest transition-colors group-hover:text-[#1F1F23]">{item.name}</span>
                     </Link>
                 ))}
             </div>
