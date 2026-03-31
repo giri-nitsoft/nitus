@@ -33,9 +33,19 @@ const Footer = () => {
                 </div>
 
                 <div className="flex flex-col md:flex-row justify-between items-center gap-8 pt-4 border-t border-border/50">
-                    <p className="text-[10px] text-muted-foreground/60 uppercase tracking-widest font-medium font-sans">
-                        &copy; {new Date().getFullYear()} NIT America. All rights reserved.
-                    </p>
+                    <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8">
+                        <p className="text-[10px] text-muted-foreground/60 uppercase tracking-widest font-medium">
+                            &copy; {new Date().getFullYear()} NIT America. All rights reserved.
+                        </p>
+                        <div className="flex gap-6">
+                            <Link to="/privacy" className="text-[10px] text-muted-foreground/40 hover:text-[#111111] uppercase tracking-[0.15em] font-bold transition-colors">
+                                Privacy Policy
+                            </Link>
+                            <Link to="/terms" className="text-[10px] text-muted-foreground/40 hover:text-[#111111] uppercase tracking-[0.15em] font-bold transition-colors">
+                                SMS Terms
+                            </Link>
+                        </div>
+                    </div>
                 </div>
             </div>
         </footer>

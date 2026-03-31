@@ -12,6 +12,8 @@ import Home from './pages/Home'
 import Home2 from './pages/Home2'
 import Re from './pages/Re'
 import Re2 from './pages/Re2'
+import Privacy from './pages/Privacy'
+import Terms from './pages/Terms'
 
 function App() {
     return (
@@ -29,6 +31,8 @@ function App() {
                         <Route path="/licensing" element={<Licensing />} />
                         <Route path="/messaging2" element={<Messaging2 />} />
                         <Route path="/contact" element={<Contact />} />
+                        <Route path="/privacy" element={<Privacy />} />
+                        <Route path="/terms" element={<Terms />} />
                     </Routes>
                 </div>
                 <Footer />
