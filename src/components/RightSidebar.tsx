@@ -84,7 +84,7 @@ const RightSidebar: React.FC<RightSidebarProps> = ({ mainRef }) => {
                             transition={{ duration: 1, delay: 0.7 }}
                             className="[writing-mode:vertical-rl] rotate-180 text-white font-bold uppercase tracking-[0.25em] text-lg lg:text-2xl"
                         >
-                            Brand Licensing<br />& Distribution
+                            Brand Licensing
                         </motion.div>
                     </Link>
                 </div>
@@ -180,7 +180,7 @@ const RightSidebar: React.FC<RightSidebarProps> = ({ mainRef }) => {
                             {[
                                 { name: 'Home', path: '/', icon: <HomeIcon /> },
                                 { name: 'Messaging Services', path: '/messaging', icon: <MessageSquare /> },
-                                { name: 'Brand Licensing & Distribution', path: '/licensing', icon: <Briefcase /> },
+                                { name: 'Brand Licensing', path: '/licensing', icon: <Briefcase /> },
                                 { name: 'Contact', path: '/contact', icon: <Mail /> },
                             ].map((item, i) => (
                                 <motion.div

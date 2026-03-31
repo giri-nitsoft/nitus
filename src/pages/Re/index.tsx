@@ -155,7 +155,7 @@ export default function Re() {
                                 and Brands to New Markets
                             </h1>
                             <p className="mt-8 text-white/50 text-[12.6px] sm:text-[14.4px] md:text-[16.2px] font-medium max-w-2xl mx-auto leading-relaxed tracking-tight">
-                                NIT AMERICA helps businesses grow by connecting them to customers through messaging and to new markets through distribution.
+                                NIT AMERICA helps businesses grow by connecting them to customers through messaging and to new markets through brand licensing.
                             </p>
                         </motion.div>
 
@@ -241,7 +241,7 @@ export default function Re() {
                     </div>
                 </motion.div>
 
-                {/* Right Card: Licensing & Distribution */}
+                {/* Right Card: Brand Licensing */}
                 <motion.div
                     initial={{ y: 50, opacity: 0 }}
                     whileInView={{ y: 0, opacity: 1 }}
@@ -254,7 +254,7 @@ export default function Re() {
                             <motion.img
                                 key={images[currentImage]}
                                 src={images[currentImage]}
-                                alt="Licensing & Distribution"
+                                alt="Brand Licensing"
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 exit={{ opacity: 0 }}
@@ -267,7 +267,7 @@ export default function Re() {
                     <div className="pt-4 pb-2 px-2 sm:pt-6 sm:pb-3 sm:px-3 lg:pt-8 lg:pb-4 lg:px-4 text-left space-y-4 md:space-y-6">
                         <div className="space-y-2 lg:space-y-3">
                             <h3 className="text-[#E2E2E2] text-xl sm:text-2xl md:text-3xl lg:text-[2rem] font-bold tracking-tight">
-                                Brand Distribution & Licensing
+                                Brand Licensing
                             </h3>
                             <p className="text-white/60 text-xs sm:text-sm md:text-base font-medium leading-relaxed max-w-[90%]">
                                 End-to-end solutions for entering and scaling within the Korean and US markets.
@@ -431,7 +431,7 @@ export default function Re() {
                         <div className="space-y-6 md:space-y-8">
                             <div data-reveal className="text-base md:text-xl text-white/80 leading-relaxed font-medium mx-auto max-w-none">
                                 <p>
-                                    We connect businesses to customers through messaging and help brands enter Korea through licensing & distribution. One team, built to execute growth across communication and market expansion.
+                                    We connect businesses to customers through messaging and help brands enter Korea through brand licensing. One team, built to execute growth across communication and market expansion.
                                 </p>
                             </div>
 
@@ -535,7 +535,7 @@ export default function Re() {
                             <div className="max-w-3xl mx-auto text-center mb-16 space-y-4">
                                 <h3 data-reveal className="text-xl md:text-2xl font-bold text-white uppercase tracking-tight">About NIT AMERICA</h3>
                                 <p data-reveal className="text-white/60 text-sm md:text-base leading-relaxed font-medium">
-                                    NIT AMERICA is a U.S.-based growth infrastructure company built on NITSOFT’s proven messaging foundation. We connect businesses to customers through messaging and help brands expand into new markets through licensing & distribution.
+                                    NIT AMERICA is a U.S.-based growth infrastructure company built on NITSOFT’s proven messaging foundation. We connect businesses to customers through messaging and help brands expand into new markets through brand licensing.
                                 </p>
                             </div>
                             <div className="grid md:grid-cols-2 gap-8 md:gap-12 max-w-5xl mx-auto">

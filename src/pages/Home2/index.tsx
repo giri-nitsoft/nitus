@@ -329,7 +329,7 @@ export default function Home2() {
                             </div>
                         </div>
 
-                        {/* Brand Distribution & Licensing */}
+                        {/* Brand Licensing */}
                         <div data-reveal data-stagger="2" className="group relative p-8 md:p-12 rounded-[40px] border border-white/5 bg-white/5 hover:bg-white/10 hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-700 overflow-hidden min-h-[500px] flex flex-col justify-between">
                             {/* Background Motif */}
                             <div className="absolute top-1/2 right-[-10%] -translate-y-1/2 opacity-[0.02] group-hover:opacity-[0.04] transition-opacity duration-700">
@@ -341,7 +341,7 @@ export default function Home2() {
                                     <Store className="w-7 h-7 text-white" />
                                 </div>
                                 <div className="space-y-6 max-w-lg">
-                                    <h3 className="text-4xl font-bold text-white">Brand Distribution & Licensing</h3>
+                                    <h3 className="text-4xl font-bold text-white">Brand Licensing</h3>
                                     <p className="text-lg text-white/60 font-medium leading-relaxed">
                                         End-to-end solutions for entering and scaling within the Korean and US markets.
                                     </p>
@@ -383,7 +383,7 @@ export default function Home2() {
                                 <p>
                                     <span className="md:whitespace-nowrap">We help teams reach more customers and grow faster with managed enterprise messaging.</span><br />
                                     <span className="md:whitespace-nowrap">We combine compliance, deliverability, and reporting into one accountable service.</span><br />
-                                    <span className="md:whitespace-nowrap">And we help brands expand into Korea through licensing & distribution.</span>
+                                    <span className="md:whitespace-nowrap">And we help brands expand into Korea through brand licensing.</span>
                                 </p>
                             </div>
 

@@ -18,7 +18,7 @@ import LogoMarquee from "../Home2/components/LogoMarquee";
 
 
 
-const titles = ["Messaging Services", "Brand Licensing & Distribution"];
+const titles = ["Messaging Services", "Brand Licensing"];
 const licensingImages = [
     "/home/licensing_card.jpg",
     "/home/licensing_card_2.jpg",
@@ -194,8 +194,8 @@ export default function Home() {
     return (
         <div className="w-full overflow-x-hidden">
             <SEO
-                title="NIT America | Leading Messaging Services & Market Expansion"
-                description="NIT AMERICA helps businesses grow by connecting them to customers through messaging and to new markets through distribution."
+                title="NIT America | Leading Messaging & Brand Licensing"
+                description="NIT AMERICA helps businesses grow by connecting them to customers through messaging and to new markets through brand licensing."
             />
 
             {/* --- LEFT CONTENT AREA --- */}
@@ -420,7 +420,7 @@ export default function Home() {
                                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
                                         <div className="absolute bottom-4 left-6 z-10">
                                             <h3 className="text-xl md:text-2xl font-black tracking-tight text-white leading-tight">
-                                                Brand Distribution & Licensing
+                                                Brand Licensing
                                             </h3>
                                         </div>
                                     </div>
@@ -536,7 +536,7 @@ export default function Home() {
                                 NIT AMERICA is a U.S.-based growth infrastructure company built on <br className="hidden md:block" />
                                 NITSOFT’s proven messaging foundation. We connect businesses to <br className="hidden md:block" />
                                 customers through messaging and help brands expand into new <br className="hidden md:block" />
-                                markets through licensing & distribution.
+                                markets through brand licensing.
                             </motion.p>
                         </div>
 
@@ -640,7 +640,7 @@ export default function Home() {
                             <div className="space-y-6 md:space-y-8">
                                 <div data-reveal className="text-base md:text-xl text-[#1F1F23]/70 leading-relaxed font-medium mx-auto max-w-3xl">
                                     <p>
-                                        We connect businesses to customers through messaging and help brands enter Korea through licensing & distribution. One team, built to execute growth across communication and market expansion.
+                                        We connect businesses to customers through messaging and help brands enter Korea through brand licensing. One team, built to execute growth across communication and market expansion.
                                     </p>
                                 </div>
 

@@ -64,7 +64,7 @@ const Licensing = () => {
     return (
         <div className="relative min-h-screen bg-white">
             <SEO
-                title="Licensing & Distribution"
+                title="Brand Licensing"
                 description="The bridge between US trends and Korea. We secure premium US brand licenses and deploy them through specialized execution hubs in Korea."
                 keywords="Brand Licensing, US Brands in Korea, Global Distribution, MAUI & SONS, LA GEAR, Market Expansion Korea"
                 canonical="https://nitamerica.com/licensing"
