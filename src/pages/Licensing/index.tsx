@@ -72,7 +72,7 @@ const Licensing = () => {
             {/* Background elements removed */}
 
             {/* Hero Section */}
-            <section className="container pt-32 pb-24 border-b border-border/50 relative">
+            <section className="container pt-12 pb-24 border-b border-border/50 relative">
                 <div className="flex flex-col lg:flex-row items-center justify-between min-h-[400px]">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -260,15 +260,22 @@ const Licensing = () => {
             </section>
 
             {/* Footer CTA */}
-            <section className="container py-32 text-center">
+            <section className="py-32 md:py-48 bg-[#FBFBFB] border-t border-border/50 text-center px-8">
                 <motion.div
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="max-w-2xl mx-auto space-y-12"
+                    className="max-w-4xl mx-auto space-y-12"
                 >
-                    <h2 className="text-2xl md:text-4xl font-sans font-semibold">Build your bridge to the Korean market with certain outcome.</h2>
-                    <Button size="lg" variant="outline" className="rounded-none px-12 h-16 text-md font-medium uppercase tracking-widest border-accent text-accent hover:bg-accent hover:text-white transition-all duration-300" onClick={() => navigate('/contact')}>
+                    <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-[#1F1F23] leading-tight">
+                        Build your bridge to the Korean market <br className="hidden md:block" />
+                        with a certain outcome.
+                    </h2>
+                    <Button 
+                        size="lg" 
+                        className="w-full md:w-auto h-16 px-12 rounded-full bg-[#111111] text-white font-bold uppercase tracking-[0.2em] text-xs hover:bg-[#333333] hover:-translate-y-1 hover:shadow-2xl transition-all duration-300" 
+                        onClick={() => navigate('/contact')}
+                    >
                         Start a Partnership
                     </Button>
                 </motion.div>

@@ -94,7 +94,7 @@ const Messaging = () => {
             />
 
             {/* Hero Section */}
-            <section className="w-full py-24 md:py-32 xl:py-40 bg-[#FBFBFB]">
+            <section className="w-full pt-4 pb-20 md:pt-12 md:pb-32 xl:pt-16 xl:pb-40 bg-[#FBFBFB]">
                 <div className="container mx-auto px-8">
                     <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
                         <motion.div
@@ -507,20 +507,20 @@ const Messaging = () => {
             </section>
 
             {/* Final CTA Section */}
-            <section className="py-32 md:py-48 bg-foreground relative overflow-hidden text-center text-white px-8">
+            <section className="py-24 md:py-48 bg-[#111111] relative overflow-hidden text-center text-white px-6">
                 <div className="absolute inset-0 z-0 opacity-20" />
 
-                <div className="container mx-auto relative z-10 max-w-3xl space-y-12">
+                <div className="container mx-auto relative z-10 max-w-4xl space-y-10">
                     <div className="space-y-6">
-                        <h2 className="text-4xl md:text-5xl font-bold tracking-tight leading-tight">
+                        <h2 className="text-3xl md:text-5xl font-bold tracking-tight leading-tight px-2">
                             Tell us your use case. We'll propose the right channel mix.
                         </h2>
-                        <p className="text-lg md:text-xl text-white/60 leading-relaxed max-w-2xl mx-auto">
+                        <p className="text-base md:text-xl text-white/60 leading-relaxed max-w-2xl mx-auto px-4">
                             Share your goals and timeline—get a rollout plan built around compliance and performance.
                         </p>
                     </div>
-                    <div className="pt-8">
-                        <Link to="/contact" className="px-12 py-6 bg-white text-foreground rounded-full font-black uppercase tracking-widest hover:bg-accent hover:text-white transition-all shadow-2xl">
+                    <div className="pt-4">
+                        <Link to="/contact" className="inline-flex items-center justify-center px-8 md:px-12 py-4 md:py-6 bg-white text-[#111111] rounded-full text-sm md:text-base font-black uppercase tracking-widest hover:bg-gray-100 transition-all shadow-2xl">
                             Request Consultation
                         </Link>
                     </div>

@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { useForm, ValidationError } from '@formspree/react';
 import SEO from "@/components/SEO";
-import { } from 'react';
+import { useState } from 'react';
 
 const Contact = () => {
     const [state, handleSubmit] = useForm("xgolvary");
@@ -107,9 +107,8 @@ const Contact = () => {
                                     <ValidationError errors={state.errors} className="text-sm text-red-500 mb-4 block" />
                                     <Button
                                         type="submit"
-                                        size="lg"
                                         disabled={state.submitting}
-                                        className="rounded-none px-12 h-16 text-md font-medium uppercase tracking-widest disabled:opacity-50 disabled:cursor-not-allowed"
+                                        className="w-full md:w-auto h-16 px-12 rounded-full bg-[#111111] text-white font-bold uppercase tracking-[0.2em] text-xs hover:bg-[#333333] hover:-translate-y-1 hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                                     >
                                         {state.submitting ? 'Sending...' : 'Request a Conversation'}
                                     </Button>

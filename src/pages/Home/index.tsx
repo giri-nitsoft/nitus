@@ -512,11 +512,11 @@ export default function Home() {
                                     whileInView={{ scale: 1, opacity: 1, rotate: -5 }}
                                     viewport={{ once: true }}
                                     transition={{ delay: 0.8, duration: 0.8, type: "spring" }}
-                                    className="absolute -top-8 md:-top-12 lg:-top-16 right-0 translate-x-[12%] flex flex-col items-start min-w-[200px]"
+                                    className="absolute -top-8 md:-top-12 lg:-top-16 right-0 -translate-x-[20%] md:translate-x-[12%] flex flex-col items-start min-w-[200px]"
                                 >
                                     <span className="text-[#FF4D4D] font-serif italic text-xl md:text-3xl lg:text-4xl whitespace-nowrap opacity-80">Since 2025</span>
                                     {/* Curved Red Arrow (SVG) */}
-                                    <svg className="w-10 h-10 md:w-16 md:h-16 mt-1 -ml-4 text-[#FF4D4D] opacity-60" viewBox="0 0 100 100" fill="none">
+                                    <svg className="hidden md:block w-10 h-10 md:w-16 md:h-16 mt-1 -ml-4 text-[#FF4D4D] opacity-60" viewBox="0 0 100 100" fill="none">
                                         <path d="M70 20C65 45 40 65 15 75" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
                                         <path d="M12 70L15 80L25 78" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
                                     </svg>

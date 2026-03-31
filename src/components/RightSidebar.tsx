@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Menu, X, ArrowRight, Home as HomeIcon, MessageSquare, Briefcase, Mail } from 'lucide-react';
 
 export const navItems = [
     { id: '01', name: 'WORK', color: 'bg-[#8CA2D6]', path: '/' },
@@ -15,6 +16,7 @@ interface RightSidebarProps {
 
 const RightSidebar: React.FC<RightSidebarProps> = ({ mainRef }) => {
     const location = useLocation();
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const handleNavClick = (e: React.MouseEvent, item: typeof navItems[0]) => {
         if (item.name === 'CONTACT') return;
@@ -122,9 +124,9 @@ const RightSidebar: React.FC<RightSidebarProps> = ({ mainRef }) => {
                 </nav>
             </aside>
 
-            {/* --- MOBILE NAVIGATION --- */}
+            {/* --- MOBILE BOTTOM GNB --- */}
             <div className="md:hidden fixed bottom-0 left-0 w-full h-[84px] bg-white/95 backdrop-blur-2xl border-t border-gray-100/50 flex items-center justify-around px-4 z-[9999] shadow-[0_-10px_40px_rgba(0,0,0,0.05)]">
-                {navItems.map((item) => (
+                {navItems.filter(item => item.name !== 'CONTACT').map((item) => (
                     <Link
                         key={item.id}
                         to={item.path}
@@ -138,7 +140,82 @@ const RightSidebar: React.FC<RightSidebarProps> = ({ mainRef }) => {
                         <span className="text-[11px] font-black text-[#1F1F23]/80 uppercase tracking-widest transition-colors group-hover:text-[#1F1F23]">{item.name}</span>
                     </Link>
                 ))}
+
+                {/* --- HAMBURGER TOGGLE BUTTON --- */}
+                <button
+                    onClick={() => setIsMenuOpen(true)}
+                    className="flex flex-col items-center gap-2 group flex-1"
+                >
+                    <motion.div 
+                        whileTap={{ scale: 0.9 }}
+                        className="w-10 h-1.5 rounded-full bg-[#111111] transition-all duration-300 opacity-60 group-hover:opacity-100 group-hover:w-14"
+                    />
+                    <span className="text-[11px] font-black text-[#111111]/80 uppercase tracking-widest">MENU</span>
+                </button>
             </div>
+
+            {/* --- MOBILE FULL SCREEN MENU OVERLAY --- */}
+            <AnimatePresence>
+                {isMenuOpen && (
+                    <motion.div
+                        initial={{ opacity: 0, y: "100%" }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: "100%" }}
+                        transition={{ type: "spring", damping: 30, stiffness: 300 }}
+                        className="fixed inset-0 bg-[#Fdfdfd] z-[10000] flex flex-col p-8 md:hidden"
+                    >
+                        {/* Header within Menu */}
+                        <div className="flex justify-between items-center mb-16">
+                            <img src="/home/logo_n.png" alt="Logo" className="w-12 h-12 object-contain" />
+                            <button 
+                                onClick={() => setIsMenuOpen(false)}
+                                className="p-4 bg-gray-100 rounded-full active:scale-95 transition-transform"
+                            >
+                                <X className="w-6 h-6 text-[#111111]" />
+                            </button>
+                        </div>
+
+                        {/* Navigation Links */}
+                        <div className="flex flex-col gap-8">
+                            {[
+                                { name: 'Home', path: '/', icon: <HomeIcon /> },
+                                { name: 'Messaging Services', path: '/messaging', icon: <MessageSquare /> },
+                                { name: 'Brand Licensing & Distribution', path: '/licensing', icon: <Briefcase /> },
+                                { name: 'Contact', path: '/contact', icon: <Mail /> },
+                            ].map((item, i) => (
+                                <motion.div
+                                    key={item.name}
+                                    initial={{ opacity: 0, x: -20 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    transition={{ delay: 0.1 * i }}
+                                >
+                                    <Link
+                                        to={item.path}
+                                        onClick={() => setIsMenuOpen(false)}
+                                        className="flex items-center justify-between group py-2"
+                                    >
+                                        <div className="flex items-center gap-6">
+                                            <div className="w-12 h-12 rounded-2xl bg-gray-50 flex items-center justify-center text-gray-400 group-hover:bg-[#8CA2D6]/10 group-hover:text-[#8CA2D6] transition-all">
+                                                {React.cloneElement(item.icon as React.ReactElement, { className: "w-6 h-6" })}
+                                            </div>
+                                            <span className="text-xl md:text-2xl font-bold text-[#111111] leading-tight group-hover:translate-x-2 transition-transform duration-300">
+                                                {item.name}
+                                            </span>
+                                        </div>
+                                        <ArrowRight className="w-6 h-6 text-gray-300 group-hover:text-[#111111] transition-colors" />
+                                    </Link>
+                                </motion.div>
+                            ))}
+                        </div>
+
+                        {/* Footer in Menu */}
+                        <div className="mt-auto pt-10 border-t border-gray-100">
+                            <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Get in touch</p>
+                            <p className="text-sm font-bold text-[#111111]">info@nitamerica.com</p>
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </>
     );
 };
